@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+
+
+<odoo>
+
+<!-- SubStation -->
+
+    <!-- Main Action -->
+    <record id="main_action" model="ir.actions.act_window">
+        <field name="name">Main Action</field>
+        <field name="res_model">central.substation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record
+            </p>
+        </field>
+    </record>
+
+    <!-- SubStaion-1 Action -->
+    <record id="substation1_action" model="ir.actions.act_window">
+        <field name="name">Sub-1 Action</field>
+        <field name="res_model">central.substation1</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+
+            <!-- SubStation-1 Tree View -->
+            <record id="central_substation1_view_tree" model="ir.ui.view">
+                <field name="name">central.substation1.view.tree</field>
+                <field name="model">central.substation1</field>
+                <field name="arch" type="xml">
+                    <tree string="SubStation-1">
+                        <field name="name" />
+                    </tree>
+                </field>
+            </record>
+            
+    
+    <!-- SubStaion-2 Action -->
+    <record id="substation2_action" model="ir.actions.act_window">
+        <field name="name">Sub-2 Action</field>
+        <field name="res_model">central.substation2</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+
+            <!-- SubStation-2 Tree View -->
+            <record id="central_substation2_view_tree" model="ir.ui.view">
+                <field name="name">central.substation2.view.tree</field>
+                <field name="model">central.substation2</field>
+                <field name="arch" type="xml">
+                    <tree string="SubStation-2">
+                        <field name="name" />
+                    </tree>
+                </field>
+            </record>
+
+
+
+    <!-- SubStaion-3 Action -->
+    <record id="substation3_action" model="ir.actions.act_window">
+        <field name="name">Sub-3 Action</field>
+        <field name="res_model">central.substation3</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+
+
+            <!-- SubStation-3 Tree View -->
+            <record id="central_substation3_view_tree" model="ir.ui.view">
+                <field name="name">central.substation3.view.tree</field>
+                <field name="model">central.substation3</field>
+                <field name="arch" type="xml">
+                    <tree string="SubStation-3">
+                        <field name="name" />
+                    </tree>
+                </field>
+            </record>
+
+
+<!-- Transactions -->
+            
+
+    <!-- Transaction in Action  -->
+    <record id="transaction_in_action" model="ir.actions.act_window">
+        <field name="name">Transaction In Action</field>
+        <field name="res_model">central.transaction_in</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add new Record
+            </p>
+        </field>
+    </record>
+
+
+        <!-- transaction_in Search View -->
+        <record id="transaction_in_view_search" model="ir.ui.view">
+            <field name="name">central.transaction_in.view.search</field>
+            <field name="model">central.transaction_in</field>
+            <field name="arch" type="xml">
+                <search string="Transaction In Search View">
+
+                    <filter string="Current Day" name="current_day"
+                    domain="[('date','&gt;',context_today().strftime('%Y-%m-%d 00:00:00')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <filter string="Current Week" name="current_week"
+                    domain="[('date','&gt;',(context_today()-relativedelta(days=7)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <filter string="Current Month" name="current_month"
+                    domain="[('date','&gt;',(context_today()-relativedelta(months=1)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+                     
+                    <filter string="Current Year" name="current_year"
+                    domain="[('date','&gt;',(context_today()-relativedelta(years=1)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_substation" string="Sub-Station"
+                        context="{'group_by': 'sub_station'}" />
+                        
+                        <filter name="group_by_fueltype" string="Fuel Type"
+                        context="{'group_by': 'fuel_type'}" />
+
+                        <filter name="group_by_date" string="Date"
+                        context="{'group_by': 'date'}" />
+                    </group>
+                
+
+                </search>
+            </field>
+        </record>
+        
+
+        <!-- Transaction In tree view -->
+        <record id="transaction_in_view_tree" model="ir.ui.view">
+            <field name="name">central.transaction_in.view.tree</field>
+            <field name="model">central.transaction_in</field>
+            <field name="arch" type="xml">
+                <tree string="Transaction In Tree View">
+                    <field name="sub_station" />
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="fuel_type" />
+                    <field name="instock_qut" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Transaction In Form View -->
+        <record id="transaction_in_view_form" model="ir.ui.view">
+            <field name="name">central.transaction_in.view.form</field>
+            <field name="model">central.transaction_in</field>
+            <field name="arch" type="xml">
+                <form string="Transaction in Form View">
+                    <sheet>
+                        <group>
+                            <field name="sub_station" />
+                            <field name="name" />
+                            <field name="date" />
+                            <field name="fuel_type" />
+                            <field name="instock_qut" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+    <!-- Transaction out Action  -->
+    <record id="transaction_out_action" model="ir.actions.act_window">
+        <field name="name">Transaction Out Action</field>
+        <field name="res_model">central.transaction_out</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add new Record
+            </p>
+        </field>
+    </record>
+
+
+        <!-- Transaction out Search View -->
+        <record id="transaction_out_view_search" model="ir.ui.view">
+            <field name="name">central.transaction_out.view.search</field>
+            <field name="model">central.transaction_out</field>
+            <field name="arch" type="xml">
+                <search string="Transaction Out Search View">
+
+                    <filter string="Current Day" name="current_day"
+                    domain="[('date','&gt;',context_today().strftime('%Y-%m-%d 00:00:00')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <filter string="Current Week" name="current_week"
+                    domain="[('date','&gt;',(context_today()-relativedelta(days=7)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <filter string="Current Month" name="current_month"
+                    domain="[('date','&gt;',(context_today()-relativedelta(months=1)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+                     
+                    <filter string="Current Year" name="current_year"
+                    domain="[('date','&gt;',(context_today()-relativedelta(years=1)).strftime('%Y-%m-%d 23:59:59')),
+                     ('date','&lt;=',context_today().strftime('%Y-%m-%d 23:59:59'))]"/>
+                
+                     <group expand="0" string="Group By">
+                        <filter name="group_by_substation" string="Sub-Station"
+                        context="{'group_by': 'sub_station'}" />
+                        
+                        <filter name="group_by_fueltype" string="Fuel Type"
+                        context="{'group_by': 'fuel_type'}" />
+
+                        <filter name="group_by_date" string="Date"
+                        context="{'group_by': 'date'}" />
+                    </group>
+
+                </search>
+            </field>
+        </record>
+        
+
+        <!-- Transaction Out tree view -->
+        <record id="transaction_out_view_tree" model="ir.ui.view">
+            <field name="name">central.transaction_out.view.tree</field>
+            <field name="model">central.transaction_out</field>
+            <field name="arch" type="xml">
+                <tree string="Transaction Out Tree View">
+                    <field name="sub_station" />
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="fuel_type" />
+                    <field name="order_qut" />
+                    <field name="price" />
+                    <field name="total_price" />
+                </tree>
+            </field>
+        </record>
+        
+
+        <!-- Transaction Out Form View -->
+        <record id="transaction_out_view_form" model="ir.ui.view">
+            <field name="name">central.transaction_out.view.form</field>
+            <field name="model">central.transaction_out</field>
+            <field name="arch" type="xml">
+                <form string="Transaction Out Form View">
+                    <sheet>
+                        <group>
+                            <field name="sub_station" />
+                            <field name="name" />
+                            <field name="date" />
+                            <field name="fuel_type" />
+                            <field name="order_qut" />
+                            <field name="price" />
+                            <field name="total_price" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Central Data Action -->
+        <record id="central_data_action" model="ir.actions.act_window">
+            <field name="name">Data Action</field>
+            <field name="res_model">central.data</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    No Data Available
+                </p>
+            </field>
+        </record>
+
+            <!-- Central Data Tree View -->
+            <record id="central_data_view_tree" model="ir.ui.view">
+                <field name="name">central.data.view.tree</field>
+                <field name="model">central.data</field>
+                <field name="arch" type="xml">
+                    <tree string="Data Tree View">
+                        <field name="substation_name" />                        
+                        <field name="name" />                        
+                        <field name="price" />                        
+                        <field name="fuel_qut" />                        
+                    </tree>
+                </field>
+            </record>
+
+            <!-- Central Data Form View -->
+            <record id="central_data_view_form" model="ir.ui.view">
+                <field name="name">central.data.view.form</field>
+                <field name="model">central.data</field>
+                <field name="arch" type="xml">
+                    <form string="Data Form View">
+                        <sheet>
+                            <group>
+                                <field name="substation_name" />                        
+                                <field name="name"/>                        
+                            <field name="price" />                        
+                            <field name="fuel_qut" />    
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+
+        <!-- Central Tanker Action -->
+        <record id="central_tanker_action" model="ir.actions.act_window">
+            <field name="name">Tanker Action</field>
+            <field name="res_model">central.tanker</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Add new Record
+                </p>
+            </field>
+        </record>
+
+            <!-- Tanker Tree View -->
+            <record id="central_tanker_view_tree" model="ir.ui.view">
+                <field name="name">central.tanker.view.tree</field>
+                <field name="model">central.tanker</field>
+                <field name="arch" type="xml">
+                    <tree string="Tanker Tree View" decoration-success="status=='delivered'" decoration-danger="status=='late'" >
+                        <field name="name" />
+                        <field name="starting_pt" />
+                        <field name="dest" />
+                        <field name="fuel_type" />
+                        <field name="vol" />
+                        <field name="status" widget="badge"  decoration-info="status=='dispatch'" decoration-success="status=='delivered'" decoration-warning="status=='on_way'" decoration-danger="status=='late'"/>
+                        <field name="tanker_rec_id" />
+                    </tree>
+                </field>
+            </record>
+
+            <!-- Tanker Form View -->
+            <record id="central_tanker_view_form" model="ir.ui.view">
+                <field name="name">central.tanker.view.form</field>
+                <field name="model">central.tanker</field>
+                <field name="arch" type="xml">
+                    <form string="Tanker Form View">
+                        <header>
+                            <field name="status" widget="statusbar" nolable="1" options="{'clickable':'1'}" />
+                        </header>
+                        <sheet>
+                            <group>
+                                <field name="name" />
+                                <field name="starting_pt" />
+                                <field name="dest" />
+                                <field name="fuel_type" />
+                                <field name="vol" />
+                                <field name="tanker_rec_id" />
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+    <!-- Tanker Details action -->
+    <!-- <record id="central_tanker_details_action" model="ir.actions.act_window">
+        <field name="name">Tanker Details</field>
+        <field name="res_model">central.tanker_details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add Details here!
+            </p>
+        </field>
+    </record> -->
+
+    
+    <!-- Root menu -->
+    <menuitem
+        id="central_main_menu"
+        name="CentralStation"/>
+
+    <!-- SubStation Main Menu -->
+    <menuitem
+        id="substation_menu"
+        name="Sub Stations"
+        groups="base.group_user"
+        parent="central_main_menu"
+        sequence="1"/>
+        
+
+            <!-- SubStation vise menus -->
+            <menuitem
+                id="substation1_menu"
+                name="SubStation-1"
+                action="substation1_action"
+                parent="substation_menu"
+                sequence="1"/>
+
+            <menuitem
+                id="substation2_menu"
+                name="SubStation-2"
+                action="substation2_action"
+                parent="substation_menu"
+                sequence="2"/>
+
+            <menuitem
+                id="substation3_menu"
+                name="SubStation-3"
+                action="substation3_action"
+                parent="substation_menu"
+                sequence="3"/>
+
+
+    <!-- Transaction Main Manu -->
+    <menuitem
+        id="transaction_menu"
+        name="Transactions"
+        groups="base.group_user"
+        parent="central_main_menu"
+        sequence="2"/>
+
+            <!-- Transaction Submenu In -->
+            <menuitem
+                id="transaction_in_menu"
+                name="Transaction In"
+                action="transaction_in_action"
+                parent="transaction_menu"
+                sequence="1"/>
+
+            <!-- Transaction Submenu out -->
+            <menuitem
+                id="transaction_out_menu"
+                name="Transaction Out"
+                action="transaction_out_action"
+                parent="transaction_menu"
+                sequence="2"/>
+
+
+    <!-- Central Data -->
+    <menuitem
+        id="central_data_menu"
+        name="Data"
+        groups="base.group_user"
+        parent="central_main_menu"
+        action="central_data_action"
+        sequence="3"/>
+
+
+    <!-- Central Tanker Record -->
+    <menuitem
+        id="central_tanker_menu"
+        name="Tanker"
+        groups="base.group_user"
+        parent="central_main_menu"
+        action="central_tanker_action"
+        sequence="4"/>
+
+    <!-- Central Tanker Record -->
+    <!-- <menuitem
+        id="central_tanker_details_menu"
+        name="Tanker Details"
+        groups="base.group_user"
+        parent="central_main_menu"
+        action="central_tanker_details_action"
+        sequence="5"/> -->
+
+
+
+
+
+
+
+
+</odoo>

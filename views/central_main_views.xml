@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- SubStation-1 Tree View -->
+    <record id="central_substation1_view_tree" model="ir.ui.view">
+        <field name="name">central.substation1.view.tree</field>
+        <field name="model">central.substation1</field>
+        <field name="arch" type="xml">
+            <tree string="SubStation-1">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- SubStation-2 Tree View -->
+    <record id="central_substation2_view_tree" model="ir.ui.view">
+        <field name="name">central.substation2.view.tree</field>
+        <field name="model">central.substation2</field>
+        <field name="arch" type="xml">
+            <tree string="SubStation-2">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- SubStation-3 Tree View -->
+    <record id="central_substation3_view_tree" model="ir.ui.view">
+        <field name="name">central.substation3.view.tree</field>
+        <field name="model">central.substation3</field>
+        <field name="arch" type="xml">
+            <tree string="SubStation-3">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+
+
+
+
+
+</odoo>

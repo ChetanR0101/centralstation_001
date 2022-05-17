@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- Main Action -->
+    <record id="main_action" model="ir.actions.act_window">
+        <field name="name">Main Action</field>
+        <field name="res_model">central.substation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record
+            </p>
+        </field>
+    </record>
+
+    <!-- SubStaion-1 Action -->
+    <record id="substation1_action" model="ir.actions.act_window">
+        <field name="name">Sub-1 Action</field>
+        <field name="res_model">central.substation1</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+    
+    
+    <!-- SubStaion-2 Action -->
+    <record id="substation2_action" model="ir.actions.act_window">
+        <field name="name">Sub-2 Action</field>
+        <field name="res_model">central.substation2</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+
+    <!-- SubStaion-3 Action -->
+    <record id="substation3_action" model="ir.actions.act_window">
+        <field name="name">Sub-3 Action</field>
+        <field name="res_model">central.substation3</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Add New Record!
+            </p>
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+</odoo>
