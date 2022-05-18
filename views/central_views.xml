@@ -18,79 +18,20 @@
         </field>
     </record>
 
-    <!-- SubStaion-1 Action -->
-    <record id="substation1_action" model="ir.actions.act_window">
-        <field name="name">Sub-1 Action</field>
-        <field name="res_model">central.substation1</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p>
-                Add New Record!
-            </p>
-        </field>
-    </record>
-
-            <!-- SubStation-1 Tree View -->
-            <record id="central_substation1_view_tree" model="ir.ui.view">
-                <field name="name">central.substation1.view.tree</field>
-                <field name="model">central.substation1</field>
+            <!-- substation Tree View -->
+            <record id="central_substation_view_tree" model="ir.ui.view">
+                <field name="name">central.substation.view.tree</field>
+                <field name="model">central.substation</field>
                 <field name="arch" type="xml">
-                    <tree string="SubStation-1">
+                    <tree string="SubStation Details">
                         <field name="name" />
+                        <field name="manager" />
+                        <field name="sub_add" />                       
                     </tree>
                 </field>
             </record>
             
     
-    <!-- SubStaion-2 Action -->
-    <record id="substation2_action" model="ir.actions.act_window">
-        <field name="name">Sub-2 Action</field>
-        <field name="res_model">central.substation2</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p>
-                Add New Record!
-            </p>
-        </field>
-    </record>
-
-            <!-- SubStation-2 Tree View -->
-            <record id="central_substation2_view_tree" model="ir.ui.view">
-                <field name="name">central.substation2.view.tree</field>
-                <field name="model">central.substation2</field>
-                <field name="arch" type="xml">
-                    <tree string="SubStation-2">
-                        <field name="name" />
-                    </tree>
-                </field>
-            </record>
-
-
-
-    <!-- SubStaion-3 Action -->
-    <record id="substation3_action" model="ir.actions.act_window">
-        <field name="name">Sub-3 Action</field>
-        <field name="res_model">central.substation3</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p>
-                Add New Record!
-            </p>
-        </field>
-    </record>
-
-
-            <!-- SubStation-3 Tree View -->
-            <record id="central_substation3_view_tree" model="ir.ui.view">
-                <field name="name">central.substation3.view.tree</field>
-                <field name="model">central.substation3</field>
-                <field name="arch" type="xml">
-                    <tree string="SubStation-3">
-                        <field name="name" />
-                    </tree>
-                </field>
-            </record>
-
 
 <!-- Transactions -->
             
@@ -393,36 +334,13 @@
         name="CentralStation"/>
 
     <!-- SubStation Main Menu -->
-    <menuitem
+<!--     <menuitem
         id="substation_menu"
         name="Sub Stations"
         groups="base.group_user"
         parent="central_main_menu"
-        sequence="1"/>
+        sequence="1"/> -->
         
-
-            <!-- SubStation vise menus -->
-            <menuitem
-                id="substation1_menu"
-                name="SubStation-1"
-                action="substation1_action"
-                parent="substation_menu"
-                sequence="1"/>
-
-            <menuitem
-                id="substation2_menu"
-                name="SubStation-2"
-                action="substation2_action"
-                parent="substation_menu"
-                sequence="2"/>
-
-            <menuitem
-                id="substation3_menu"
-                name="SubStation-3"
-                action="substation3_action"
-                parent="substation_menu"
-                sequence="3"/>
-
 
     <!-- Transaction Main Manu -->
     <menuitem
@@ -430,7 +348,7 @@
         name="Transactions"
         groups="base.group_user"
         parent="central_main_menu"
-        sequence="2"/>
+        sequence="1"/>
 
             <!-- Transaction Submenu In -->
             <menuitem
@@ -456,7 +374,7 @@
         groups="base.group_user"
         parent="central_main_menu"
         action="central_data_action"
-        sequence="3"/>
+        sequence="2"/>
 
 
     <!-- Central Tanker Record -->
@@ -466,7 +384,7 @@
         groups="base.group_user"
         parent="central_main_menu"
         action="central_tanker_action"
-        sequence="4"/>
+        sequence="3"/>
 
     <!-- Central Tanker Record -->
     <!-- <menuitem
