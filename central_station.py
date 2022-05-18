@@ -8,6 +8,8 @@ class CentralStation_substation(models.Model):
     _description="Central Station - SubStation"
     name= fields.Char("SubStation Name")
     price=fields.Float("Fuel Price")
+    manager= fields.Char("Manager Name")
+    sub_add=fields.Char("Sub Station Address")
 
 
 class CentralStation_transaction_in(models.Model):
@@ -66,19 +68,19 @@ class CentralStation_tanker_details(models.Model):
     driver_contact_no= fields.Integer("Driver Contact No.")
 
 #  SubStation Models
-class CentralStation_substation1(models.Model):
-    _name= "central.substation1"
-    name= fields.Char("Manager Name")
-    sub_add=fields.Char("Sub Station Address")
+# class CentralStation_substation1(models.Model):
+#     _name= "central.substation1"
+#     name= fields.Char("Manager Name")
+#     sub_add=fields.Char("Sub Station Address")
     
 
-class CentralStation_substation1(models.Model):
-    _name= "central.substation2"
-    name= fields.Char("Manager Name")
-    sub_add=fields.Char("Sub Station Address")
+# class CentralStation_substation1(models.Model):
+#     _name= "central.substation2"
+#     name= fields.Char("Manager Name")
+#     sub_add=fields.Char("Sub Station Address")
 
 
-class CentralStation_substation1(models.Model):
-    _name= "central.substation3"
-    name= fields.Char("Manager Name")
-    sub_add=fields.Char("Sub Station Address")
+# class CentralStation_substation1(models.Model):
+#     _name= "central.substation3"
+#     name= fields.Char("Manager Name")
+#     sub_add=fields.Char("Sub Station Address")
